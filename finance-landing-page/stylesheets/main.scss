@@ -1,0 +1,163 @@
+@charset "UTF-8";
+
+// 1. Configuration and helpers
+@import
+  'abstracts/variables',
+  'abstracts/functions',
+  'abstracts/mixins',
+  'abstracts/media-query';
+
+// 2. Vendors
+@import
+  'vendors/normalize';
+
+// 3. Base stuff
+@import
+  'base/base',
+  'base/fonts',
+  'base/typography',
+  'base/helpers';
+
+// 4. Layout-related sections
+@import
+  // 'layout/header',
+  // 'layout/footer';
+  'layout/navbar';
+
+// 5. Components
+@import
+  'components/button';
+
+// 6. Page-specific styles
+@import
+  'pages/home';
+
+// 7. Themes
+@import
+  'themes/default';
+
+
+
+
+
+body{
+  font-family: 'Kumbh Sans', sans-serif;
+}
+
+
+.hero{
+  background: $light;
+
+  &__container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+    margin: 0 auto;
+    height: 90vh;
+    z-index: 1;
+    width: 100%;
+    max-width: 1200px;
+    padding-right: 24px;
+    padding-left: 24px;
+
+    @include md{
+      grid-template-columns: 1fr;
+      height: 100%;
+    }
+
+    &--left{
+      width: 100%;
+      line-height: 1.2;
+
+      @include md{
+        padding: 5rem 0;
+      }
+
+      @include sm{
+        line-height: 1.5;
+      }
+    }
+
+
+    &--left h1{
+      font-size: 4rem;
+      color: $lime-green;
+
+      @include sm{
+        font-size: 1.5rem;
+      }
+    }
+
+
+    &--left h2{
+      font-size: 4rem;
+      color: $dark-grey;
+
+      @include sm{
+        font-size: 2rem;
+      }
+    }
+
+
+    &--left p{
+      font-size: 2rem;
+      font-weight: 700;
+      color: $dark-grey;
+      margin-top: 1rem;
+
+      @include sm{
+        font-size: 2rem;
+      }
+    }
+
+    &--btn{
+      font-size: 1rem;
+      background-color: $lime-green;
+      padding: 14px 32px;
+      border: none;
+      outline: none;
+      border-radius: 4px;
+      margin-top: 2rem;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.3s;
+
+    }
+
+
+    &--btn a{
+      position: relative;
+      z-index: 2;
+      color: $light;
+      text-decoration: none;
+    }
+
+    &--btn::after{
+      position: absolute;
+      content: '';
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background: $orange-red;
+      transition: all 0.3s;
+      border-radius: 4px;
+    }
+
+    &--btn:hover::after{
+      width: 100%;
+    }
+
+    &--right{
+      text-align: center;
+    }
+
+    &--img{
+      height: 100%;
+      width: 100%;
+    }
+
+
+  }
+}
